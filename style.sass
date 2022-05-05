@@ -1,32 +1,32 @@
 body
+    display: flex
+    flex-direction: column
     font-family: 'Anek Bangla'
-    background: rgb(2,0,36)
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(23,23,145,1) 44%, rgba(0,212,255,1) 100%)
-
 header 
     display: flex
     justify-content: center
-    margin-top: 10pх
+    margin-top: 10px
     color: white
-    
 .checklist
+    display: inline-block
     position: relative
-    width: 500px
-    height: 500px
-    padding: 30px
-    border-radius: 15px
+    min-width: 500px
+    min-height: 500px
+    padding: 25px
     margin: 20px auto
     background-color: white
+    border-radius: 15px
     &_wrapper
         display: flex
         justify-content: space-evenly
     &_input
         display: block
+        min-width: 350px
+        height: 50px
         border: solid grey
         border-radius: 15px
         padding: 0 20px
-        width: 350px
-        height: 50px
         background: #eae5ee
         font-size: 18px
         text-align: center
@@ -54,17 +54,17 @@ header
             background: white
             left: 13px
             top: 26px
-        &:hover
+        &:hover 
             cursor: pointer
             background-color: #2c2caa
     &_case
+        height: 50px
         position: relative
-        margin-top: 25px
         display: flex
         align-items: center
+        justify-content: space-between
+        margin-top: 25px
         border-radius: 15px
-        width: 450px
-        height: 50px
         background: #eae5ee
         &:before
             content: ""
@@ -84,9 +84,7 @@ header
                 background-position: center center
                 background-size: 35%
     &_button
-        position: absolute
-        right: -35px
-        top: 0
+        margin-left: 10px
         border-radius: 20px
         width: 100px
         height: 50px
@@ -111,8 +109,10 @@ header
             cursor: pointer
             background-color: #2c2caa
     &_subheader
-        font-size: 20px
+        font-size: 18px
         padding-left: 40px
+        min-width: 300px
+      
 
 
 
