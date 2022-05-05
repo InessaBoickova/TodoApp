@@ -24,9 +24,11 @@ val.addEventListener('keydown', function(e) {
 });
 
 addBtn.addEventListener('click',(e)=> {
-    counter++;
-    addTask(counter - 1);  
-    createCount(counter);
+    if(val.value != undefined && val.value != ''){
+        counter++;
+        addTask(counter - 1);  
+        createCount(counter);
+    }
 })
 
 clear.addEventListener('click',() => deliteAll());
