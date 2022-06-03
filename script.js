@@ -4,16 +4,16 @@ const val =  document.querySelector('.checklist_input'),
       result = document.querySelector('.wrapper'),
       clear = document.querySelector('.checklist_clear');
 
-let counter = 0;
-function createCount(count){
-    result.innerHTML =`<h4 class="checklist_count">You have padding ${count} task</h4>`
+let counter = task.childElementCount;
+function createCount(){
+    result.innerHTML =`<h4 class="checklist_count">You have padding ${task.childElementCount} task</h4>`
 }
-createCount(counter);
+createCount();
 
-function addTask(count){
+function addTask(){
     let wrap = document.createElement('div');
     wrap.classList.add("checklist_case");
-    wrap.id = count;
+    wrap.id = task.childElementCount;
     task.appendChild(wrap);
     wrap.innerHTML = `
         <div class="checklist_subheader">${val.value}</div>
@@ -24,36 +24,35 @@ function addTask(count){
     delite.forEach((item)=>{
         item.addEventListener('click',()=>{
             item.parentNode.remove();
-            createCount(task.childElementCount);  
+            createCount(task.childElementCount)
         }) 
     })   
 }  
 
-function deliteAll(){
-    for(let i = 1; i <= counter ; i++){
+function deliteAll(count){
+    for(let i = 0; i < count ; i++){
         document.getElementById(`${i}`).remove();
     } 
     counter = 0;
-    createCount(counter);
+    createCount();
 }
 
 val.addEventListener('keydown', function(e) {
     if (e.keyCode === 13 && (val.value != undefined && val.value != '')) {
-        counter++;
-        addTask(counter);  
-        createCount(counter);
+        addTask();  
+        createCount();
     }
 });
 
-clear.addEventListener('click',() => deliteAll());
+clear.addEventListener('click',() => deliteAll(task.childElementCount));
 
 addBtn.addEventListener('click',(e)=> {
     if(val.value != undefined && val.value != ''){
-        counter++;
-        addTask(counter);  
-        createCount(counter);
+        addTask();  
+        createCount();
     }
 })
+
 
 
 
